@@ -1,0 +1,41 @@
+<template>
+    <div class="cards">
+        <div class="title">
+            Сейчас в городе
+        </div>
+        <div class="cards__list">
+            <Card subtitle="домов без горячей воды" :image="waterDrop" color="hot"></Card>
+            <Card subtitle="домов без холодной воды" :image="waterDrop" color="cold"></Card>
+            <Card subtitle="домов без электричества" :image="electricity" color="electricity"></Card>
+            <Card subtitle="домов без электричества" :image="heating" color="heating"></Card>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import waterDrop from '../assets/img/water_drop.svg'
+import heating from '../assets/img/heating.svg'
+import electricity from '../assets/img/electricity.svg'
+</script>
+
+<style lang="scss">
+    .cards{
+        display: flex;
+        flex-direction: column;
+        gap: 45px;
+        min-width: 0;
+        &__list{
+            display: flex;
+            flex-direction: row;
+            gap: 45px;
+            overflow: auto;
+        }
+        &__title{
+            font-family: var(--main-font);
+            font-size: 40px;
+            font-weight: 400;
+            color: #085685;
+        }
+    }
+    
+</style>

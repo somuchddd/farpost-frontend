@@ -1,0 +1,48 @@
+:root {
+      --main-font: 'Rubik One', sans-serif;
+      --font: 'Inter', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+      width: 100%;
+      min-height: 100vh;
+}
+
+.title{
+      font-family: var(--main-font);
+      font-size: 40px;
+      font-weight: 400;
+      color: #085685;
+}
+
+.main{
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+}
+
+._container {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 clamp(15px, 4.5vw, 88px);
+      box-sizing: border-box;
+    }
+
+a{
+      all: unset;
+}
+
+.wrapper{
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+}
+
+.button{
+      cursor: pointer;
+}
