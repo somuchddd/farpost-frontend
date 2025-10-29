@@ -37,5 +37,17 @@ import electricity from '../assets/img/electricity.svg'
             color: #085685;
         }
     }
+
+    @media(max-width: 700px){
+        .cards__list{
+            gap: 20px;
+        }
+    }
+
+    @media(max-width: 600px){
+        .cards{
+            gap: 20px;
+        }
+    }
     
 </style>

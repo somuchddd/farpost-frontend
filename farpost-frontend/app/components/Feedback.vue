@@ -10,9 +10,9 @@
             </button>
         </div>
         <div class="feedback__image">
-            <p class="feedback__image-text bottom-right">Я уже никому не верю</p>
+            <p class="feedback__image-text top-left">Я уже никому не верю</p>
             <img src="../assets/img/cat.png" alt="">
-            <p class="feedback__image-text top-left">И ничего не жду...</p>
+            <p class="feedback__image-text bottom-right">И ничего не жду...</p>
         </div>
         <div class="feedback__notification">
             <p class="feedback__notification-title">Чтобы всегда быть в курсе</p>
@@ -29,11 +29,11 @@
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .feedback{
         display: grid; 
         grid-template-columns: repeat(3, 1fr);
-        padding-top: 20px;
+        padding: 20px 0;
         color: #FFFFFF;
         &__problem{
             display: flex;
@@ -102,6 +102,11 @@
         &__image{
             bottom: 35px;
             position: relative;
+            width: fit-content;
+             img {
+                max-width: 100%;
+                height: auto;
+            }
             &-text{
                 position: absolute;
                 font-size: 32px;
@@ -128,12 +133,37 @@
     @media(max-width: 1297px){
         .feedback{
             grid-template-columns: repeat(2, 1fr);
+            &__notification{
+                grid-column: 1/3;
+                &-arrow{
+                    left: 480px;
+                    top: 5px;
+                }
+                &-content{
+                    align-self: center;
+                }
+            }
         }
+        
     }
 
     @media(max-width: 900px){
         .feedback{
             grid-template-columns: repeat(1, 1fr);
+            row-gap: 20px;
+            &__problem{
+                gap: 30px;
+                &-info{
+                    gap: 20px;
+                }
+            }
+            &__notification{
+                gap: 20px;
+                grid-column: 1/2;
+                &-arrow{
+                    display: none;
+                }
+            }
         }
     }
 </style>

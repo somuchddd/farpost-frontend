@@ -19,10 +19,8 @@
             <div class="main__org">
                 <Organizations></Organizations>
             </div>
-        </section>
-        <section class="main__map">
-            <div class="_container">
-                <Map class="map"></Map>
+            <div class="main__map">
+                <Map></Map>
             </div>
         </section>
         <section class="main__feedback">
@@ -41,7 +39,7 @@
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .map{
         width: 100%;
     }
@@ -49,13 +47,13 @@
     .blue__wave{
         background: url('../assets/img/blue_wave.svg');
         background-size: cover;
-        height: 80px;
+        height: 100px;
     }
 
     .orange__wave{
         background: url('../assets/img/orange_wave.svg');
         background-size: cover;
-        height: 80px;
+        height: 100px;
     }
 
     .main{
@@ -73,7 +71,8 @@
             grid-template-areas: "intro adds"
                                  "search ."
                                  "break org"
-                                 "cards cards";
+                                 "cards cards"
+                                 "map map";
             row-gap: 45px;
             column-gap: 22px;
             box-sizing: border-box;
@@ -83,6 +82,8 @@
         }
         &__adds{
             grid-area: adds;
+            display: flex;
+            justify-content: flex-end;
         }
         &__search{
             grid-area: search;
@@ -96,6 +97,13 @@
         &__org{
                 grid-area: org;
         }
+        &__map{
+            grid-area: map;
+        }
+    }
+
+    .main__content>div{
+        min-width: 0;
     }
     
     @media(max-width: 1200px){
@@ -106,7 +114,18 @@
                              "break"
                              "cards"
                              "org"
+                             "map"
                              "adds";
+        }
+    }
+
+    @media(max-width: 600px){
+        .main{
+            margin-top: 25px;
+            gap: 20px;
+            &__content{
+                row-gap: 20px;
+            }
         }
     }
 </style>

@@ -13,13 +13,14 @@
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .search{
         display: flex;
         justify-content: space-between;
         padding: 9px 16px;
         background-color: #03A9F4;
         border-radius: 20px;
+        align-items: center;
         &__button{
             border-radius: 15px;
             border: 0px;
@@ -33,6 +34,17 @@
             &:hover{
                 background-color: #B4DDF4;
             }
+        }
+    }
+
+    @media(max-width: 700px){
+        img{
+            width: 30px;
+        }
+
+        .search__button{
+            font-size: 14px;
+            padding: 10px 15px;
         }
     }
 </style>

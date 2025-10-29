@@ -67,10 +67,24 @@
     .card__cold{background-color: #03A9F4;}
     .card__hot{background-color: #FF7043;}
     .card__electricity{background-color: #9575CD;}
-    .card__heating{
-        background-color: #FF8F00;
+    .card__heating{background-color: #FF8F00;}
+
+    @media(max-width: 700px){
+        .card__count{
+            font-size: 32px;
+        }
+
+        .card__subtitle{
+            font-size: 12px;
+            line-height: 100%;
+        }
+
         .card__image{
-            height: 48px;
+            height: 36px;
+        }
+
+        .card{
+            gap: 7px;
         }
     }
 </style>

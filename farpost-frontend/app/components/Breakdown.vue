@@ -1,13 +1,14 @@
 <template>
     <div class="breakdown">
         <p class="title">Аварийность по жалобам</p>
+        <Graph></Graph>
         <nav class="breakdown__nav">
-        <p>Сегодня:</p>
+            <p>Сегодня:</p>
             <NuxtLink to='#' class="breakdown__nav-item">общая сводка</NuxtLink>
             <p class="breakdown__nav-separator">|</p>
             <NuxtLink to='#' class="breakdown__nav-item">отключения</NuxtLink>
             <p class="breakdown__nav-separator">|</p>
-            <NuxtLink to='#' class="breakdown__nav-item">плановые - {{count}}</NuxtLink>
+            <NuxtLink to='#' class="breakdown__nav-item">плановые - 4</NuxtLink>
         </nav>
     </div>
 </template>
@@ -23,6 +24,7 @@
         gap: 25px;
         font-size: 20px;
         font-family: var(--font);
+        flex-wrap: wrap;
     }
     .breakdown__nav{
         display: flex;
@@ -35,6 +37,12 @@
             &:hover{
                 color: #03A9F4;
             }
+        }
+    }
+
+    @media(max-width: 600px){
+        .breakdown__nav{
+            font-size: 14px;
         }
     }
 </style>

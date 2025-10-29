@@ -1,6 +1,6 @@
 <template>
     <div class="add">
-        <p>Работа с высоким доходом</p>
+        <p class="title" >Работа с высоким доходом</p>
         <div class="add__list">
             <NuxtLink
             v-for="add in adds"
@@ -31,7 +31,7 @@ const adds = [
         width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        align-self: flex-end;
         font-size: 16px;
         font-family: var(--font);
         color: #085685;
@@ -76,5 +76,13 @@ const adds = [
         padding: 9px 8px;
     }
 
+    .add__list-item p:nth-child(1) {        
+        word-break: break-word;
+    }
 
+    @media(max-width: 600px){
+        .add{
+            font-size: 14px;
+        }
+    }
 </style>

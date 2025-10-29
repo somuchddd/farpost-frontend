@@ -58,6 +58,8 @@ const isFullscreen = ref(false);
 const height = ref('496px')
 const timedCounter = ref(1);
 
+
+
 const toggleFullscreen = () => {
     if (isFullscreen.value) {
         document.exitFullscreen();
@@ -97,6 +99,7 @@ onMounted(() => {
     .yandex__map{
         border-radius: 35px;
         overflow: hidden;
+        height: 496px;
     }
 
     .fullscreen {
@@ -106,9 +109,9 @@ onMounted(() => {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cg fill='%236B6B6B'%3E%3Cpath d='M16.14 7.86L14.27 6H20v5.7l-1.83-1.82L15.04 13 13 10.98l3.13-3.13zm0 0M9.86 18.14L11.73 20H6v-5.7l1.83 1.82L10.96 13 13 15.02l-3.13 3.13zm0 0'/%3E%3C/g%3E%3C/svg%3E");
     }
 
-    @media (max-width: 1000px){
+    @media(max-width: 600px){
         .map__wrapper{
-          width: auto;
+            gap: 20px;
         }
     }
 </style>

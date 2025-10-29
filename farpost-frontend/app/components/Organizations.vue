@@ -46,4 +46,13 @@ const organizations = [
             }
         }
     }
+
+    @media(max-width: 600px){
+        .org{
+            gap: 20px;
+            &__list{
+                gap: 20px;
+            }
+        }
+    }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="intro">
-        <div class="title">
+        <div class="intro__title title">
             Узнайте об отключениях в своём доме
         </div>
         <div class="intro__image">
@@ -11,21 +11,22 @@
 
 <style lang="scss">
     .intro{
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: 40px;
-        &__title{
-            font-family: var(--main-font);
-            font-size: 40px;
-            font-weight: 400;
-            color: #085685;
-        }
         &__image{
             img{
                 width: 100%;
                 height: auto;
                 display: block;
             }
+        }
+    }
+
+    @media(max-width: 600px){
+        .intro{
+            gap: 20px;
         }
     }
 </style>

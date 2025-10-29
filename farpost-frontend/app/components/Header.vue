@@ -18,9 +18,9 @@
                 </nav>
                 <button class="header__login-button">
                     <p class="header__login-title">
-                        Вход
+                        вход
                     </p>
-                    <img class="header__login-icon" src="../assets/img/login-icon.svg" alt="">
+                    <img class="header__login-icon" src="../assets/img/login_icon.svg" alt="">
                 </button>
             </div>
         </div>
@@ -79,7 +79,7 @@ import logo from "../assets/img/logo.svg"
             align-self: flex-end;
         }
         img{
-            width: 42px;
+            width: 36px;
         }
     }
 
@@ -119,6 +119,39 @@ import logo from "../assets/img/logo.svg"
             &-nav{
                 display: none;
             }
+        }
+    }
+
+    @media(max-width: 700px){
+        .header__logo-title{
+            font-size: 12px;
+            padding-bottom: 0;
+            gap: 2px;
+            line-height: 100%;
+        }
+        
+        .header__logo-image{
+            width: 90px;
+        }
+
+        .header__actions{
+            align-self: flex-end;
+            img{
+                width: 24px;
+            }
+        }
+
+        .header__login-button{
+                font-size: 14px;
+        }
+    }
+
+    @media(max-width: 539px){
+        .header__login-title{
+            display: none;
+        }
+        .header__logo{
+            width: auto;
         }
     }
 </style>
