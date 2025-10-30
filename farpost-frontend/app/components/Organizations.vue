@@ -10,19 +10,16 @@
             class="org__list-item"
             >
                 <p class="org__list-name">{{ org.name }}</p>
-                <p class="org__list-count">{{ org.count }} домов</p>
+                <p class="org__list-count">{{ org.buildingCount }} домов</p>
             </div>
         </div>
     </div>
 </template>
 
-<script setup>
-const organizations = [
-  { id: 1, name: 'МУПВ ВПЭС', count: 146 },
-  { id: 2, name: 'Управляющие организации', count: 1 },
-  { id: 3, name: 'ООО "Дальневосточные Электрические Сети"', count: 0 },
-  { id: 4, name: 'АО "Оборонэнерго"', count: 0 }
-]
+<script setup lang="ts">
+import { organizationService } from '~/services/organizationService';
+
+const organizations = organizationService.getOrganizations();
 </script>
 
 <style lang="scss" scoped>

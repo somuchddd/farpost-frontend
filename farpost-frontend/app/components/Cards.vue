@@ -4,10 +4,10 @@
             Сейчас в городе
         </div>
         <div class="cards__list">
-            <Card subtitle="домов без горячей воды" :image="waterDrop" color="hot"></Card>
-            <Card subtitle="домов без холодной воды" :image="waterDrop" color="cold"></Card>
-            <Card subtitle="домов без электричества" :image="electricity" color="electricity"></Card>
-            <Card subtitle="домов без электричества" :image="heating" color="heating"></Card>
+            <Card subtitle="домов без горячей воды" :image="waterDrop" color="hot" :count="summary.hot_water"></Card>
+            <Card subtitle="домов без холодной воды" :image="waterDrop" color="cold" :count="summary.cold_water"></Card>
+            <Card subtitle="домов без электричества" :image="electricity" color="electricity" :count="summary.electricity"></Card>
+            <Card subtitle="домов без отопления" :image="heating" color="heating" :count="summary.heat"></Card>
         </div>
     </div>
 </template>
@@ -16,6 +16,8 @@
 import waterDrop from '../assets/img/water_drop.svg'
 import heating from '../assets/img/heating.svg'
 import electricity from '../assets/img/electricity.svg'
+import { outageSummaryService } from '~/services/outageService';
+const summary = outageSummaryService.getOutageSummary();
 </script>
 
 <style lang="scss">

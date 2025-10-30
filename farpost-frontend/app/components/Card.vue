@@ -2,7 +2,7 @@
     <div class="card" :class = "`card__${color}`">
         <div class="card__title">
             <img v-if="image" :src="image" alt="Изображение" class="card__image">
-            <div class="card__count">452</div>
+            <div class="card__count">{{ count }}</div>
         </div>
         <div class="card__subtitle">{{ subtitle }}</div>
     </div>
@@ -10,6 +10,10 @@
 
 <script setup>
     defineProps({
+        count: {
+            type: [Number, String],
+            required: true
+        },
         subtitle: {
             type: String,
             required: true

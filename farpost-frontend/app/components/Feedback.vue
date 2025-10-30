@@ -32,7 +32,7 @@
 <style lang="scss" scoped>
     .feedback{
         display: grid; 
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 0.8fr 1fr 1fr;
         padding: 20px 0;
         color: #FFFFFF;
         &__problem{
