@@ -74,7 +74,7 @@
                                  "cards cards"
                                  "map map";
             row-gap: 45px;
-            column-gap: 22px;
+            column-gap: 30px;
             box-sizing: border-box;
         }
         &__intro{

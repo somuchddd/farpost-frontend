@@ -2,13 +2,13 @@
     <Swiper :modules="modules"
      pagination :loop="true" class="slider">
         <SwiperSlide class="slider__figure">
-            <Graph></Graph>
+            <Graph :data-service="monthDataService"></Graph>
         </SwiperSlide class="slider__figure">
         <SwiperSlide>
-            <Graph></Graph>
+            <Graph :data-service="dayDataService"></Graph>
         </SwiperSlide>
         <SwiperSlide class="slider__figure">
-            <Graph></Graph>
+            <Graph :data-service="hourDataService"></Graph>
         </SwiperSlide>
     </Swiper>
 </template>
@@ -22,6 +22,10 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 const modules = [Navigation, Pagination]
+
+import { hourDataService } from '~/services/hourDataService'
+import { dayDataService } from '~/services/dayDataService'
+import { monthDataService } from '~/services/monthDataService'
 </script>
 
 <style scoped>

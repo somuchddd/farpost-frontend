@@ -5,9 +5,9 @@
                 <p>Превышены нормативы отключения электричества/воды?</p>
                 <p>Не указана причина отключения?</p>
             </div>
-            <button class="feedback__problem-button">
+            <NuxtLink to="/form" class="feedback__problem-button">
                 <p>Сообщить о проблеме</p>
-            </button>
+            </NuxtLink>
         </div>
         <div class="feedback__image">
             <p class="feedback__image-text top-left">Я уже никому не верю</p>
@@ -19,7 +19,7 @@
             <img class="feedback__notification-arrow" src="../assets/img/down_arrow.svg" alt="">
             <div class="feedback__notification-content">
                 <img class="feedback__notification-icon" src="../assets/img/bell.svg" alt="">
-                <NuxtLink to="/form" class="feedback__notification-text">Подключиться на уведомления об отключении воды и света</NuxtLink>
+                <NuxtLink to="#" class="feedback__notification-text">Подключиться на уведомления об отключении воды и света</NuxtLink>
             </div>
         </div>
     </div>
