@@ -19,7 +19,7 @@
             <img class="feedback__notification-arrow" src="../assets/img/down_arrow.svg" alt="">
             <div class="feedback__notification-content">
                 <img class="feedback__notification-icon" src="../assets/img/bell.svg" alt="">
-                <NuxtLink to="#" class="feedback__notification-text">Подключиться на уведомления об отключении воды и света</NuxtLink>
+                <NuxtLink to="/form" class="feedback__notification-text">Подключиться на уведомления об отключении воды и света</NuxtLink>
             </div>
         </div>
     </div>
