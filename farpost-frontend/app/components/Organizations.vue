@@ -16,10 +16,22 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import { organizationService } from '~/services/organizationService';
 
-const organizations = organizationService.getOrganizations();
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import { organizationService } from '~/services/organizationService';
+import type { Organization } from '~/entities/organization';
+
+const organizations = ref<Organization[]>([]);
+
+onMounted(async () => {
+  try {
+    organizations.value = await organizationService.getOrganizations();
+  } catch (error) {
+    console.error('Ошибка при загрузке организаций:', error);
+  }
+});
+
 </script>
 
 <style lang="scss" scoped>

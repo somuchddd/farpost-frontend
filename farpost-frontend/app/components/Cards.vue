@@ -1,23 +1,59 @@
 <template>
-    <div class="cards">
-        <div class="title">
-            Сейчас в городе
-        </div>
-        <div class="cards__list">
-            <Card subtitle="домов без горячей воды" :image="waterDrop" color="hot" :count="summary.hot_water"></Card>
-            <Card subtitle="домов без холодной воды" :image="waterDrop" color="cold" :count="summary.cold_water"></Card>
-            <Card subtitle="домов без электричества" :image="electricity" color="electricity" :count="summary.electricity"></Card>
-            <Card subtitle="домов без отопления" :image="heating" color="heating" :count="summary.heat"></Card>
-        </div>
+  <div class="cards">
+    <div class="title">
+      Сейчас в городе
     </div>
+
+    <div class="cards__list" v-if="summary">
+      <Card
+        subtitle="домов без горячей воды"
+        :image="waterDrop"
+        color="hot"
+        :count="summary.hot_water"
+      />
+      <Card
+        subtitle="домов без холодной воды"
+        :image="waterDrop"
+        color="cold"
+        :count="summary.cold_water"
+      />
+      <Card
+        subtitle="домов без электричества"
+        :image="electricity"
+        color="electricity"
+        :count="summary.electricity"
+      />
+      <Card
+        subtitle="домов без отопления"
+        :image="heating"
+        color="heating"
+        :count="summary.heat"
+      />
+    </div>
+
+    <div v-else class="loading">
+      Загрузка данных...
+    </div>
+  </div>
 </template>
 
-<script setup>
-import waterDrop from '../assets/img/water_drop.svg'
-import heating from '../assets/img/heating.svg'
-import electricity from '../assets/img/electricity.svg'
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import waterDrop from '../assets/img/water_drop.svg';
+import heating from '../assets/img/heating.svg';
+import electricity from '../assets/img/electricity.svg';
 import { outageSummaryService } from '~/services/outageService';
-const summary = outageSummaryService.getOutageSummary();
+import type { OutageSummary } from '~/entities/outageSummary';
+
+const summary = ref<OutageSummary | null>(null);
+
+onMounted(async () => {
+  try {
+    summary.value = await outageSummaryService.getOutageSummary();
+  } catch (error) {
+    console.error('Ошибка при загрузке сводки отключений:', error);
+  }
+});
 </script>
 
 <style lang="scss">
