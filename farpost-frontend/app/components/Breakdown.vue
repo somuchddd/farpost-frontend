@@ -1,7 +1,7 @@
 <template>
     <div class="breakdown">
         <p class="title">Аварийность по жалобам</p>
-        <Graph></Graph>
+        <Swiper></Swiper>
         <nav class="breakdown__nav">
             <p>Сегодня:</p>
             <NuxtLink to='#' class="breakdown__nav-item">общая сводка</NuxtLink>
