@@ -31,7 +31,7 @@ import { monthDataService } from '~/services/monthDataService'
 <style scoped>
 .slider {
   width: 100%;
-  height: 400px;
+  height: 250px;
 }
 
 </style>

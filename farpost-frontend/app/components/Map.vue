@@ -88,7 +88,7 @@ import {
 
 const map = shallowRef<null | YMap>(null);
 const isFullscreen = ref(false);
-const height = ref('496px')
+const height = ref('400px')
 const timedCounter = ref(1);
 
 const markers = outageMarkerService.getMarkers();

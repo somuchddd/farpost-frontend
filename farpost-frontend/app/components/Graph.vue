@@ -6,7 +6,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  height: 350
+  height: 230
 });
 
 const data = props.dataService.getData();
@@ -21,7 +21,7 @@ const RevenueCategoriesMultiple = {
 const xFormatter = (i: number): string => {
   const item = data[i];
   if (item?.day) return `${item.day}`;
-  if (item?.hour) return `${item.hour}:00`;
+  if (item?.hour) return `${item.hour}`;
   if (item?.date) return `${item.date}`;
   return '';
 };
@@ -44,12 +44,14 @@ const yFormatter = (tick: number, _i?: number, _ticks?: number[]) =>
       :radius="4"
       :x-formatter="xFormatter"
       :y-formatter="yFormatter"
-      :legend-position="LegendPosition.TopRight"
-      :hide-legend="false"
+      :hide-legend="true"
       :y-grid-line="true"
     />
   </div>
 </template>
 
 <style>
+  .graph-container{
+    height: 150px;
+  }
 </style>
