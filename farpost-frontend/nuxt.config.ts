@@ -7,7 +7,7 @@ export default defineNuxtConfig({
       'Rubik One': true,
       "Inter": true,
     }
-  }], 'vue-yandex-maps/nuxt', 'nuxt-charts', "nuxt-swiper"],
+  }], 'vue-yandex-maps/nuxt', 'nuxt-charts'],
   css: ['./app/assets/css/main.css'],
   yandexMaps: {
       apikey: process.env.YANDEX_MAPS_API_KEY,

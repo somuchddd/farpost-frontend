@@ -16,7 +16,7 @@
                     Разделы
                 </div>
                 <div class="footer__list">
-                    <NuxtLink to="#" class="footer__list-item">Главная</NuxtLink>
+                    <NuxtLink to="/" class="footer__list-item">Главная</NuxtLink>
                     <NuxtLink to="#" class="footer__list-item">Показания счётчиков</NuxtLink>
                     <NuxtLink to="#" class="footer__list-item">Уведомления об отключениях</NuxtLink>
                     <NuxtLink to="#" class="footer__list-item">УО Владивостока</NuxtLink>

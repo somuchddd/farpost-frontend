@@ -1,19 +1,95 @@
 <template>
-  <div class = "form__container">
-    <p class="title">
-        Форма для создания документа
+  <div class="form__container">
+    <p class="title">Форма для создания документа</p>
+    <p class="form__subtitle">
+      Заполните данную форму для того, чтобы мы помогли вам составить обращение 
+      с жалобой в управляющую компанию. Обращение составится автоматически!
     </p>
-    <p class="form__subtitle">Заполните данную форму для того, чтобы мы помогли вам составить обращение с жалобой в управляющую компанию. Обращение составится автоматически!</p>
-    <form class="form">
-        <input class="form__input" type="text" placeholder="Кому" required>
-        <input class="form__input" type="text" placeholder="От кого" required>
-        <input class="form__input" type="text" placeholder="Адрес" required>
-        <input class="form__input" type="text" placeholder="Организация" required>
-        <textarea rows="40" cols="50" placeholder="Описание проблемы"></textarea>
-        <button class="form__button" type="submit">Скачать заявление</button>
+    
+    <form class="form" @submit.prevent="generateDocument">
+      <input class="form__input" type="text" placeholder="Кому" v-model="form.recipient" required>
+      <input class="form__input" type="text" placeholder="От кого" v-model="form.sender" required>
+      <input class="form__input" type="text" placeholder="Адрес" v-model="form.address" required>
+      <input class="form__input" type="text" placeholder="Организация" v-model="form.organization" required>
+      <textarea rows="40" cols="50" placeholder="Описание проблемы"v-model="form.problem" required></textarea>
+      <button class="form__button" type="submit">Скачать заявление</button>
     </form>
   </div>
 </template>
+
+<script>
+import Docxtemplater from 'docxtemplater';
+import PizZip from 'pizzip';
+
+export default {
+  name: 'ComplaintForm',
+  data() {
+    return {
+      form: {
+        recipient: '',
+        sender: '',
+        address: '',
+        organization: '',
+        problem: ''
+      }
+    }
+  },
+  methods: {
+    async generateDocument() {
+      try {
+        const response = await fetch('/template.docx');
+
+        if (!response.ok) {
+          throw new Error(`Ошибка загрузки шаблона: ${response.status}`);
+        }
+        const template = await response.arrayBuffer();
+
+        const zip = new PizZip(template);
+        const doc = new Docxtemplater(zip, {
+          paragraphLoop: true,
+          linebreaks: true,
+        });
+
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString('ru-RU', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric'
+        });
+
+        doc.render({
+          recipient: this.form.recipient,
+          sender: this.form.sender,
+          address: this.form.address,
+          organization: this.form.organization,
+          problem: this.form.problem,
+          date: formattedDate
+        });
+
+        const out = doc.getZip().generate({
+          type: 'blob',
+          mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        });
+
+        this.downloadFile(out, 'zayavlenie.docx');
+
+      } catch (error) {
+        alert('Произошла ошибка при создании документа: ' + error.message);
+      }
+    },
+    
+    downloadFile(blob, filename) {
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href);
+    }
+  }
+}
+</script>
 
 <style lang="scss">
     textarea{

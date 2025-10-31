@@ -10,7 +10,7 @@
             </div>
             <div class="header__actions">
                 <nav class="header__actions-nav">
-                    <NuxtLink to='#' class="header__nav-item">Главная</NuxtLink>
+                    <NuxtLink to='/' class="header__nav-item">Главная</NuxtLink>
                     <NuxtLink to='#' class="header__nav-item">Показания счётчиков</NuxtLink>
                     <NuxtLink to='#' class="header__nav-item">Уведомления</NuxtLink>
                     <NuxtLink to='#' class="header__nav-item">УО Владивостока</NuxtLink>
